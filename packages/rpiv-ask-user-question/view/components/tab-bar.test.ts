@@ -119,6 +119,20 @@ describe("TabBar.render", () => {
 		}
 	});
 
+	it("shows the active tab and Submit on a 45-column phone screen", () => {
+		const questions = [
+			{ header: "New commit dates", question: "" },
+			{ header: "Force-push", question: "" },
+			{ header: "Unused files", question: "" },
+		];
+		for (const active of [0, 1, 2]) {
+			const line = makeBar(buildProps({ questions, activeTabIndex: active })).render(45)[0];
+			expect(line).toContain(questions[active].header);
+			expect(line).toContain("Submit");
+			expect(visibleWidth(line)).toBeLessThanOrEqual(45);
+		}
+	});
+
 	it("setProps replaces props between renders", () => {
 		const tb = makeBar(buildProps({ activeTabIndex: 0 }));
 		const before = tb.render(80)[0];
