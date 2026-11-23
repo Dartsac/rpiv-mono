@@ -77,6 +77,12 @@ describe("ask_user_question on a 45-column phone screen", () => {
 		});
 	});
 
+	it("keeps the full key hints, clipped, on a 60-column desk split", async () => {
+		await onTerminal(60, 24, [commitDates, forcePush, unused], (dialog) => {
+			expect(hintLine(dialog.render(60))).toBe("Enter to select · ↑/↓ to navigate · n to add notes · Tab t…");
+		});
+	});
+
 	it("keeps the full key hints where they fit", async () => {
 		await onTerminal(160, 40, [commitDates, forcePush, unused], (dialog) => {
 			expect(hintLine(dialog.render(160))).toBe(

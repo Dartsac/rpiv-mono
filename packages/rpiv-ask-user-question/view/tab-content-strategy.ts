@@ -83,10 +83,10 @@ class OneLineClippedText implements Component {
 
 /**
  * Widest dialog that gets the short key hints when the full ones do not fit: a phone's
- * SSH app in portrait (about 45 columns), and Herdr's one-column phone layout (64 and
- * fewer). A wider terminal keeps the full hints, clipped at the right edge as before.
+ * SSH app in portrait (about 45 columns). A desk pane is rarely this narrow, so a wider
+ * terminal keeps the full hints, clipped at the right edge as before.
  */
-export const SHORT_HINTS_MAX_WIDTH = 64;
+export const SHORT_HINTS_MAX_WIDTH = 50;
 
 /**
  * The key-hint row: one row, like `OneLineClippedText`. On a narrow terminal
